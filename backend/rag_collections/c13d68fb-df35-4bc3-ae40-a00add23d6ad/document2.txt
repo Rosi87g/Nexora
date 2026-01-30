@@ -1,0 +1,4 @@
+Python is a popular programming language for AI.
+TensorFlow and PyTorch are leading deep learning frameworks.
+Data preprocessing is crucial for model performance.
+Training requires large datasets and computational resources.

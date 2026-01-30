@@ -1,0 +1,4 @@
+Machine learning is a subset of artificial intelligence.
+It focuses on algorithms that can learn from data and make predictions.
+Deep learning uses neural networks with multiple layers.
+Common applications include image recognition and natural language processing.

@@ -1,0 +1,18 @@
+Python Machine Learning Frameworks
+
+TensorFlow is an open-source machine learning framework developed by Google.
+It is widely used for deep learning applications and neural network training.
+
+PyTorch is another popular deep learning framework developed by Facebook.
+It is known for its dynamic computation graphs and ease of use.
+
+Scikit-learn is a traditional machine learning library that provides
+simple and efficient tools for data analysis and modeling.
+
+Data preprocessing is a crucial step in the machine learning pipeline.
+It involves cleaning, transforming, and preparing raw data for model training.
+
+Training machine learning models requires:
+1. Large datasets with quality labeled examples
+2. Sufficient computational resources (CPU/GPU)
+3. Proper validation and testing procedures

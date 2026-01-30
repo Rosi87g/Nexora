@@ -1,0 +1,14 @@
+Machine Learning Fundamentals
+
+Machine learning is a subset of artificial intelligence that focuses on algorithms 
+that can learn from data and make predictions without being explicitly programmed.
+
+Deep learning is a specialized type of machine learning that uses neural networks 
+with multiple layers to process complex patterns in data.
+
+Common applications of machine learning include:
+- Image recognition and computer vision
+- Natural language processing and text analysis
+- Recommendation systems
+- Fraud detection
+- Autonomous vehicles

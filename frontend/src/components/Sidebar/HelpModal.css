@@ -1,0 +1,224 @@
+/* Reuse most from SettingsModal.css, add specific styles */
+
+.help-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(20px);
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  animation: modalFadeIn 0.3s ease-out;
+}
+
+.help-modal {
+  width: 100%;
+  max-width: 900px;
+  max-height: 80vh;
+  background: rgba(25, 25, 25, 0.95);
+  backdrop-filter: blur(30px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  animation: modalSlideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.help-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 28px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(10px);
+}
+
+.help-header h2 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.close-btn {
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  color: #ffffff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(10px);
+}
+
+.close-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.05);
+}
+
+.help-body {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+  min-height: 0;
+}
+
+.help-sidebar {
+  width: 240px;
+  background: rgba(30, 30, 30, 0.8);
+  backdrop-filter: blur(20px);
+  border-right: 1px solid rgba(255, 255, 255, 0.05);
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  padding: 8px 0;
+}
+
+.sidebar-tab {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 24px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: rgba(255, 255, 255, 0.7);
+  border-left: 3px solid transparent;
+}
+
+.sidebar-tab:hover {
+  background: rgba(255, 255, 255, 0.05);
+  color: #ffffff;
+  border-left-color: rgba(14, 165, 233, 0.3);
+}
+
+.sidebar-tab.active {
+  background: rgba(14, 165, 233, 0.1);
+  color: #ffffff;
+  border-left-color: #0ea5e9;
+}
+
+.tab-label {
+  font-size: 14px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.help-content-wrapper {
+  flex: 1;
+  overflow-y: auto;
+  padding: 32px;
+  background: rgba(25, 25, 25, 0.4);
+}
+
+.help-content {
+  max-width: 700px;
+}
+
+.help-content h3 {
+  margin: 0 0 12px;
+  font-size: 20px;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.help-content p {
+  margin: 0 0 16px;
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.6;
+}
+
+.help-content ul {
+  margin: 0 0 20px;
+  padding-left: 24px;
+  list-style-type: disc;
+}
+
+.help-content li {
+  margin: 8px 0;
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.6;
+}
+
+.faq-list li {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding-bottom: 16px;
+  margin-bottom: 16px;
+}
+
+.faq-list li:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+
+.faq-list li strong {
+  display: block;
+  margin-bottom: 4px;
+  color: #ffffff;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .help-modal {
+    max-width: 95vw;
+    height: 95vh;
+  }
+  
+  .help-body {
+    flex-direction: column;
+  }
+  
+  .help-sidebar {
+    width: 100%;
+    max-height: 200px;
+    flex-direction: row;
+    overflow-x: auto;
+    padding: 16px 0;
+  }
+  
+  .sidebar-tab {
+    flex: 0 0 auto;
+    padding: 12px 20px;
+    white-space: nowrap;
+  }
+  
+  .help-content-wrapper {
+    padding: 20px;
+  }
+
+  .help-content h3 {
+    font-size: 18px;
+  }
+
+  .help-content p, .help-content li {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .help-content-wrapper {
+    padding: 16px;
+  }
+
+  .help-header {
+    padding: 16px 20px;
+  }
+
+  .help-header h2 {
+    font-size: 22px;
+  }
+}

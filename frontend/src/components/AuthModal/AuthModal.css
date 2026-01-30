@@ -1,0 +1,595 @@
+/* ==================== FIXED COMPACT AUTH MODAL CSS ==================== */
+.auth-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.65);
+    backdrop-filter: blur(6px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000; /* Higher than other overlays */
+    padding: 20px;
+}
+
+.auth-card {
+    width: 420px;
+    max-width: 90vw;
+    max-height: 90vh;
+    overflow-y: auto;
+    padding: 28px 32px; /* Tighter top/bottom padding */
+    background: rgba(255,255,255,0.07);
+    backdrop-filter: blur(18px) saturate(180%);
+    border-radius: 20px;
+    border: 1px solid rgba(255,255,255,0.14);
+    text-align: center;
+    color: #fff;
+    position: relative;
+    animation: popup 0.35s ease;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+@keyframes popup {
+    from { 
+        transform: scale(0.9); 
+        opacity: 0; 
+    }
+    to { 
+        transform: scale(1); 
+        opacity: 1; 
+    }
+}
+
+.auth-header h2 {
+    margin: 0 0 6px 0; /* Tighter spacing */
+    font-size: 28px;
+    font-weight: 700;
+    background: linear-gradient(135deg, #fff 0%, #e2e8f0 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1.2;
+}
+
+.subtitle {
+    opacity: 0.75;
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.3;
+}
+
+/* ==================== VERIFY EMAIL DISPLAY ==================== */
+.verify-email {
+    font-weight: 600;
+    font-size: 14px;
+    background: rgba(255,255,255,0.08);
+    padding: 10px 14px;
+    border-radius: 10px;
+    margin: 12px 0 0; /* Reduced margin */
+    backdrop-filter: blur(10px);
+    word-break: break-all;
+    border: 2px solid rgba(255, 255, 255, 0.15);
+}
+
+/* ==================== OTP CONTAINER - OPTIMIZED SPACING ==================== */
+.otp-container {
+    margin: 20px 0 16px; /* Optimized spacing */
+    text-align: center;
+    padding: 0;
+}
+
+.otp-inputs {
+    display: flex;
+    justify-content: center;
+    gap: 10px; /* Slightly reduced gap */
+    margin: 0; /* Remove extra margin */
+    padding: 0;
+    flex-wrap: nowrap;
+}
+
+.otp-input {
+    width: 48px;              /* ✅ FIXED */
+    height: 48px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.08);
+    color: #fff;
+    font-size: 24px;
+    font-weight: 700;
+    text-align: center;
+    outline: none;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    box-sizing: border-box;
+    flex-shrink: 0;
+}
+
+.otp-input:focus {
+    border-color: #0ea5e9;
+    background: rgba(255, 255, 255, 0.12);
+    box-shadow: 
+        0 0 0 4px rgba(14, 165, 233, 0.15),
+        0 0 0 1px rgba(14, 165, 233, 0.5);
+    transform: scale(1.02);
+}
+
+.otp-input.filled {
+    border-color: #0ea5e9;
+    background: linear-gradient(135deg, rgba(14, 165, 233, 0.15), rgba(14, 165, 233, 0.08));
+}
+
+.otp-input.error {
+    border-color: #ef4444;
+    animation: shake 0.5s ease-in-out;
+}
+
+.otp-input:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-4px); }
+    75% { transform: translateX(4px); }
+}
+
+/* ==================== RESEND BUTTON - COMPACT ==================== */
+.resend-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px; /* Reduced gap */
+    margin: 16px 0; /* Reduced margin */
+}
+
+.resend-text {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.resend-btn {
+    background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%);
+    border: none;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 10px 20px; /* Slightly reduced padding */
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border-radius: 25px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 4px 15px rgba(14, 165, 233, 0.3);
+    min-width: 130px;
+    justify-content: center;
+    backdrop-filter: blur(10px);
+}
+
+.resend-btn:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(14, 165, 233, 0.4);
+    background: linear-gradient(135deg, #38bdf8 0%, #0ea5e9 100%);
+}
+
+.resend-btn:active:not(:disabled) {
+    transform: translateY(0);
+    box-shadow: 0 2px 10px rgba(14, 165, 233, 0.3);
+}
+
+.resend-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+    background: rgba(14, 165, 233, 0.5);
+}
+
+.resend-btn .small-spinner {
+    width: 16px;
+    height: 16px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-top-color: #fff;
+    border-radius: 50%;
+    animation: spin 0.6s linear infinite;
+}
+
+/* ==================== AUTH STEP CONTAINER - SUPER COMPACT ==================== */
+.auth-step {
+    display: flex;
+    flex-direction: column;
+    gap: 1px; /* Reduced from 14px */
+}
+
+/* ==================== FORM GROUP - REDUCED MARGINS ==================== */
+.form-group {
+    margin-bottom: 0; /* Remove default margin, controlled by auth-step gap */
+}
+
+/* ==================== FORM INPUTS - COMPACT ==================== */
+.auth-card input:not(.password-input):not(.otp-input) {
+    width: 100%;
+    padding: 13px 16px; /* Slightly reduced padding */
+    margin-bottom: 0; /* Remove margin, use gap instead */
+    border-radius: 12px;
+    border: 2px solid rgba(255,255,255,0.15);
+    outline: none;
+    background: rgba(255,255,255,0.08);
+    color: #fff;
+    font-size: 15px;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+.auth-card input::placeholder {
+    color: rgba(255,255,255,0.5);
+}
+
+.auth-card input:focus {
+    border-color: rgba(14, 165, 233, 0.6);
+    background: rgba(255,255,255,0.12);
+    box-shadow: 0 0 0 4px rgba(14, 165, 233, 0.1);
+}
+
+/* ==================== PASSWORD INPUT - COMPACT ==================== */
+.password-input-container {
+    position: relative;
+    margin-bottom: 0; /* Remove margin */
+}
+
+.password-input {
+    width: 100%;
+    padding: 13px 50px 13px 16px; /* Slightly reduced padding */
+    border-radius: 12px;
+    border: 2px solid rgba(255,255,255,0.15);
+    outline: none;
+    background: rgba(255,255,255,0.08);
+    color: #fff;
+    font-size: 15px;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+.eye-btn {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+    cursor: pointer;
+    padding: 6px;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    z-index: 2;
+}
+
+.eye-btn:hover:not(:disabled) {
+    background: rgba(255, 255, 255, 0.25);
+    border-color: rgba(255, 255, 255, 0.3);
+    transform: translateY(-50%) scale(1.05);
+}
+
+/* ==================== TERMS CHECKBOX - COMPACT ==================== */
+.terms-checkbox {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px; /* Slightly reduced gap */
+    margin: 8px 0; /* Reduced margin */
+    cursor: pointer;
+    position: relative;
+}
+
+.terms-checkbox input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.checkmark {
+    width: 20px;
+    height: 20px;
+    border: 2px solid rgba(255,255,255,0.3);
+    border-radius: 6px;
+    position: relative;
+    flex-shrink: 0;
+    transition: all 0.2s ease;
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(10px);
+    margin-top: 1px;
+}
+
+.terms-checkbox input[type="checkbox"]:checked + .checkmark {
+    background: linear-gradient(135deg, #0ea5e9, #0284c7);
+    border-color: #0ea5e9;
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+    left: 6px;
+    top: 2px;
+    width: 5px;
+    height: 10px;
+    border: solid #fff;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.terms-checkbox input[type="checkbox"]:checked + .checkmark:after {
+    display: block;
+}
+
+.terms-text {
+    font-size: 13px; /* Slightly smaller */
+    line-height: 1.5;
+    color: rgba(255,255,255,0.9);
+    flex: 1;
+}
+
+.terms-link {
+    color: #0ea5e9;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s ease;
+}
+
+.terms-link:hover {
+    color: #38bdf8;
+    text-decoration: underline;
+}
+
+/* ==================== BUTTONS - COMPACT ==================== */
+.loading-btn {
+    width: 100%;
+    padding: 13px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%);
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    margin: 8px 0;
+    position: relative;
+    overflow: hidden;
+
+    /* ✅ FIX */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+
+.loading-btn:hover:not(:disabled):not(.loading) {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(14, 165, 233, 0.3);
+}
+
+.loading-btn.loading {
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+.spinner {
+    width: 18px;
+    height: 18px;
+    border: 2.5px solid rgba(255, 255, 255, 0.3);
+    border-top-color: #fff;
+    border-radius: 50%;
+    animation: spin 0.6s linear infinite;
+    margin-right: 10px;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* ==================== GOOGLE BUTTON - COMPACT ==================== */
+.google-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 13px 20px; /* Slightly reduced padding */
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+    height: auto; /* Remove fixed height */
+    box-sizing: border-box;
+    margin: 0;
+    background: linear-gradient(135deg, #4285f4 0%, #34a853 25%, #fbbc05 50%, #ea4335 75%, #4285f4 100%);
+    background-size: 300% 300%;
+    color: #fff;
+    animation: googleGradient 3s ease infinite;
+    box-shadow: 0 4px 15px rgba(66, 133, 244, 0.4);
+}
+
+.google-btn:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(66, 133, 244, 0.5);
+}
+
+@keyframes googleGradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* ==================== DIVIDER - COMPACT ==================== */
+.divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 16px 0; /* Reduced margin */
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 13px;
+}
+
+.divider::before,
+.divider::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.divider span {
+    padding: 0 12px;
+}
+
+/* ==================== LINKS - COMPACT ==================== */
+.link-container {
+    text-align: center;
+    margin: 4px 0; /* Reduced margin */
+}
+
+.link-btn,
+.link-text {
+    background: none;
+    border: none;
+    color: #0ea5e9;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 4px 0;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.link-btn:hover,
+.link-text:hover {
+    color: #38bdf8;
+    text-decoration: underline;
+}
+
+.switch-text {
+    margin: 8px 0 0 0; /* Reduced margin */
+    font-size: 14px;
+    opacity: 0.85;
+    line-height: 1.4;
+}
+
+/* ==================== ERROR MESSAGE - COMPACT ==================== */
+.error-message {
+    background: rgba(239, 68, 68, 0.15);
+    backdrop-filter: blur(10px);
+    color: #fecaca;
+    padding: 10px 12px; /* Slightly reduced padding */
+    border-radius: 10px;
+    border-left: 4px solid #ef4444;
+    margin: 0; /* Remove margin, controlled by gap */
+    font-size: 13px;
+    text-align: left;
+    animation: slideIn 0.3s ease;
+    line-height: 1.4;
+}
+
+@keyframes slideIn {
+    from { opacity: 0; transform: translateX(-10px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+/* ==================== CLOSE BUTTON ==================== */
+.close-btn {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: transparent !important;
+    border: none;
+    color: rgba(255, 255, 255, 0.6);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.25s ease;
+    z-index: 10;
+    padding: 0;
+}
+
+.close-btn:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.1) !important;
+    transform: rotate(90deg) scale(1.05);
+}
+
+.close-btn svg {
+    width: 18px;
+    height: 18px;
+}
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 480px) {
+    .auth-card {
+        width: 95vw;
+        padding: 24px 20px;
+        margin: 10px;
+    }
+    
+    .auth-header {
+        margin-bottom: 20px;
+    }
+    
+    .auth-header h2 {
+        font-size: 24px;
+    }
+    
+    .auth-step {
+        gap: 1px;
+    }
+    
+    .otp-inputs {
+        gap: 8px;
+        margin: 16px 0;
+    }
+    
+    .otp-input {
+        width: 42px;
+        height: 42px;
+        font-size: 20px;
+    }
+    
+    .resend-btn {
+        padding: 10px 18px;
+        min-width: 120px;
+        font-size: 13px;
+    }
+    
+    .close-btn {
+        width: 32px;
+        height: 32px;
+        top: 12px;
+        right: 12px;
+    }
+    
+    .loading-btn,
+    .google-btn {
+        padding: 12px;
+        font-size: 14px;
+    }
+    
+    .terms-text {
+        font-size: 12px;
+    }
+}
